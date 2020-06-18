@@ -40,4 +40,6 @@ ref - https://market.nativescript.org/plugins/nativescript-plugin-firebase
 - Downalod plist o json and put it in 
     - app\App_Resources\iOS
     - app\App_Resources\Android 
-
+- Add that file to .gitignore
+- tns plugin add nativescript-plugin-firebase
+- add code in main.ts
