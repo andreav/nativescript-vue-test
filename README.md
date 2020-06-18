@@ -45,3 +45,12 @@ ref - https://market.nativescript.org/plugins/nativescript-plugin-firebase
 - add code in main.ts
 
 
+# ci
+
+sudo npm install -g nativescript
+npm install
+tns doctor
+# TODO how to get firebase-copy-google-services.js into project?
+tns build android
+
+

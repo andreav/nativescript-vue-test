@@ -15,8 +15,8 @@ jobs:
     - uses: actions/checkout@v2
 
     # debug action - you ca connect with ssh
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v2
+    # - name: Setup tmate session
+    #   uses: mxschmitt/action-tmate@v2
 
     # setup nativescript
     - name: Setup nativescirpt
