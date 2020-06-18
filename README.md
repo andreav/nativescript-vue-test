@@ -43,3 +43,5 @@ ref - https://market.nativescript.org/plugins/nativescript-plugin-firebase
 - Add that file to .gitignore
 - tns plugin add nativescript-plugin-firebase
 - add code in main.ts
+
+
