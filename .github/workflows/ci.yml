@@ -25,8 +25,11 @@ jobs:
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v2
 
-    # setup nativescript
+    # setup nativJescript
     - name: Setup nativescirpt
       uses: andreav/setup-nativescript-action@master
       with:
         platform: 'ubuntu'  
+
+    - name: Build Android Package
+      run: tns build android
