@@ -49,8 +49,8 @@ jobs:
         GOOGLE_SERVICES_INFO_PLIST: ${{ secrets.GOOGLE_SERVICES_INFO_PLIST }}
 
     # debug action - you ca connect with ssh
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v2
+    # - name: Setup tmate session
+    #   uses: mxschmitt/action-tmate@v2
 
     # setup nativJescript
     - name: Setup nativescirpt
