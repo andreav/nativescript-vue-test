@@ -7,7 +7,7 @@ on:
 #     branches: [ master ]
 
 jobs:
-  build:    
+  build_adroid:    
     runs-on: ubuntu-latest
 
     steps:
@@ -33,3 +33,31 @@ jobs:
     # debug action - you ca connect with ssh
     # - name: Setup tmate session
     #   uses: mxschmitt/action-tmate@v2
+
+  build_ios:    
+    runs-on: macos-latest
+
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    # debug action - you ca connect with ssh
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v2    
+
+    # Extract secret, android firebase cfg file
+    - name: Extract google-services.json
+      run: 'echo "$GOOGLE_SERVICES_JSON" > app/App_Resources/Android/google-services.json'
+      shell: bash
+      env:
+        GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+
+    # setup nativJescript
+    - name: Setup nativescirpt
+      uses: andreav/setup-nativescript-action@master
+      with:
+        platform: 'macos'  
+
+    - name: Build IOS Package
+      run: tns build ios
+
