@@ -52,7 +52,3 @@ npm install
 tns doctor
 # TODO how to get firebase-copy-google-services.js into project?
 tns build android
-
-
-
-
