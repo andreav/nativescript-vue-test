@@ -1,0 +1,3 @@
+- Create login pane
+- write a test for login pane
+- run same test on github actions or local jenkins pipeline

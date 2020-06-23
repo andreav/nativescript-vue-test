@@ -1,5 +1,6 @@
 import Vue from "nativescript-vue";
-import App from "./components/App";
+import HomePage from "./components/HomePage.vue";
+import LoginPage from "./components/LoginPage.vue";
 import VueDevtools from "nativescript-vue-devtools";
 
 if (TNS_ENV !== "production") {
@@ -29,5 +30,5 @@ const firebase = require("nativescript-plugin-firebase");
 
 new Vue({
   store,
-  render: (h) => h("frame", [h(App)]),
+  render: (h) => h("frame", [h(LoginPage)]),
 }).$start();

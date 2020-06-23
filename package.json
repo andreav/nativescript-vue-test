@@ -5,7 +5,7 @@
   "author": "andreav",
   "license": "MIT",
   "scripts": {
-    "emu": "cross-env-shell '$ANDROID_HOME/emulator/emulator -avd generic_10'",
+    "emu": "cross-env-shell '$ANDROID_HOME/emulator/emulator -avd Emulator-Api27-Google'",
     "e2e": "node ./node_modules/nativescript-dev-appium/check-dev-deps.js &&  mocha --opts ./e2e/config/mocha.opts "
   },
   "nativescript": {
