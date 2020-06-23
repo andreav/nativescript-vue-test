@@ -1,72 +1,74 @@
 <template>
   <Page>
-    <FlexboxLayout class="page">
-      <StackLayout class="form">
-        <Image class="logo" src="~/images/logo.png" />
-        <Label class="header" text="APP NAME" />
+    <ScrollView orientation="vertical">
+      <FlexboxLayout class="page">
+        <StackLayout class="form">
+          <Image class="logo" src="~/images/logo.png" />
+          <Label class="header" text="APP NAME" />
 
-        <StackLayout class="input-field" marginBottom="25">
-          <TextField
-            class="input"
-            hint="Email"
-            keyboardType="email"
-            autocorrect="false"
-            autocapitalizationType="none"
-            v-model="user.email"
-            returnKeyType="next"
-            @returnPress="focusPassword"
-            fontSize="18"
+          <StackLayout class="input-field" marginBottom="25">
+            <TextField
+              class="input"
+              hint="Email"
+              keyboardType="email"
+              autocorrect="false"
+              autocapitalizationType="none"
+              v-model="user.email"
+              returnKeyType="next"
+              @returnPress="focusPassword"
+              fontSize="18"
+            />
+            <StackLayout class="hr-light" />
+          </StackLayout>
+
+          <StackLayout class="input-field" marginBottom="25">
+            <TextField
+              ref="password"
+              class="input"
+              hint="Password"
+              secure="true"
+              v-model="user.password"
+              :returnKeyType="isLoggingIn ? 'done' : 'next'"
+              @returnPress="focusConfirmPassword"
+              fontSize="18"
+            />
+            <StackLayout class="hr-light" />
+          </StackLayout>
+
+          <StackLayout v-show="!isLoggingIn" class="input-field">
+            <TextField
+              ref="confirmPassword"
+              class="input"
+              hint="Confirm password"
+              secure="true"
+              v-model="user.confirmPassword"
+              returnKeyType="done"
+              fontSize="18"
+            />
+            <StackLayout class="hr-light" />
+          </StackLayout>
+
+          <Button
+            :text="isLoggingIn ? 'Log In' : 'Sign Up'"
+            @tap="submit"
+            class="btn btn-primary m-t-20"
           />
-          <StackLayout class="hr-light" />
+          <Label
+            v-show="isLoggingIn"
+            text="Forgot your password?"
+            class="login-label"
+            @tap="forgotPassword"
+          />
         </StackLayout>
 
-        <StackLayout class="input-field" marginBottom="25">
-          <TextField
-            ref="password"
-            class="input"
-            hint="Password"
-            secure="true"
-            v-model="user.password"
-            :returnKeyType="isLoggingIn ? 'done' : 'next'"
-            @returnPress="focusConfirmPassword"
-            fontSize="18"
-          />
-          <StackLayout class="hr-light" />
-        </StackLayout>
-
-        <StackLayout v-show="!isLoggingIn" class="input-field">
-          <TextField
-            ref="confirmPassword"
-            class="input"
-            hint="Confirm password"
-            secure="true"
-            v-model="user.confirmPassword"
-            returnKeyType="done"
-            fontSize="18"
-          />
-          <StackLayout class="hr-light" />
-        </StackLayout>
-
-        <Button
-          :text="isLoggingIn ? 'Log In' : 'Sign Up'"
-          @tap="submit"
-          class="btn btn-primary m-t-20"
-        />
-        <Label
-          v-show="isLoggingIn"
-          text="Forgot your password?"
-          class="login-label"
-          @tap="forgotPassword"
-        />
-      </StackLayout>
-
-      <Label class="login-label sign-up-label" @tap="toggleForm">
-        <FormattedString>
-          <Span :text="isLoggingIn ? 'Don’t have an account? ' : 'Back to Login'" />
-          <Span :text="isLoggingIn ? 'Sign up' : ''" class="bold" />
-        </FormattedString>
-      </Label>
-    </FlexboxLayout>
+        <Label class="login-label sign-up-label" @tap="toggleForm">
+          <FormattedString>
+            <Span :text="isLoggingIn ? 'Don’t have an account? ' : 'Back to Login'" />
+            <Span :text="isLoggingIn ? 'Sign up' : ''" class="bold" />
+          </FormattedString>
+        </Label>
+      </FlexboxLayout>
+    </ScrollView>
   </Page>
 </template>
 
