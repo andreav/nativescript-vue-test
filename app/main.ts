@@ -1,6 +1,7 @@
 import Vue from "nativescript-vue";
 import HomePage from "./components/HomePage.vue";
-import LoginPage from "./components/LoginPage.vue";
+// import LoginPage from "./components/LoginPage.vue";
+import LoginPage from "./components/LoginSOSPage.vue";
 import VueDevtools from "nativescript-vue-devtools";
 
 if (TNS_ENV !== "production") {
