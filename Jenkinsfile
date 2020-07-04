@@ -5,7 +5,7 @@ pipeline {
         stage ('prepare-env') {
             steps {
                 withCredentials([file(credentialsId: 'google_services_json', variable: 'VAR_GOOGLE_SERVICES_JSON')]) {
-                    bat label: '', script: 'copy %VAR_GOOGLE_SERVICES_JSON% .\app\App_Resources\Android\google-services.json'
+                    bat label: '', script: 'copy %VAR_GOOGLE_SERVICES_JSON% app\\App_Resources\\Android\\google-services.json'
                 }
             }
         }
